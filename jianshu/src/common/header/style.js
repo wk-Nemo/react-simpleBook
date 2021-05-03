@@ -27,6 +27,8 @@ export const Nav = styled.div`
 `;
 
 export const NavItem = styled.div`
+  cursor: pointer;
+  user-select: none;
   line-height: 56px;
   padding: 0 15px;
   font-size: 17px;
@@ -43,6 +45,28 @@ export const NavItem = styled.div`
   }
 `;
 
+export const SearchWrapper = styled.div`
+  float: left;
+  position: relative;
+  .zoom {
+    cursor: pointer;
+    user-select: none;
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    line-height: 30px;
+    text-align: center;
+    &.focused {
+      background: #777;
+      color: white;
+    }
+  }
+  
+`
+
 export const NavSearch = styled.input.attrs({
   placeholder: '搜索'
 })`
@@ -51,14 +75,30 @@ export const NavSearch = styled.input.attrs({
   height: 38px;
   margin-top: 9px;
   margin-left: 20px;
-  padding: 0 20px;
+  padding: 0 35px 0 20px;
   box-sizing: border-box;
   border: none;
   outline: none;
   border-radius: 19px;
   background: #eee;
+  color: #777;
   &::placeholder {
     color: #999;
+  }
+  &.focused {
+    width: 240px;
+  }
+  &.slide-enter {
+    transition: all .2s ease-out;
+  }
+  &.slide-enter-active {
+    width: 240px;
+  }
+  &.slide-exit {
+    transition: all .2s ease-out;
+  }
+  &.slide-exit-active {
+    width: 160px;
   }
 `;
 
@@ -69,7 +109,60 @@ export const Addition = styled.div`
   height: 56px;
 `;
 
+export const SearchInfo = styled.div`
+  position: absolute;
+  left: 0;
+  top: 56px;
+  width: 240px;
+  padding: 0 20px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+`;
+
+export const SearchInfoTitle = styled.div`
+  margin-top: 20px;
+  margin-bottom: 15px;
+  line-height: 20px;
+  font-size: 14px;
+  color: #969696;
+`;
+
+export const SearchInfoSwitch = styled.span`
+  cursor: pointer;
+  user-select: none;
+  float: right;
+  font-size: 13px;
+  .spin {
+    display: block;
+    float: left;
+    font-size: 12px;
+    margin-right: 2px;
+    transition: all 0.5s ease-in;
+    transform-origin: center center;
+  }
+`;
+
+export const SearchInfoList = styled.div`
+  overflow: hidden;
+`;
+
+export const SearchInfoItem = styled.a`
+  cursor: pointer;
+  user-select: none;
+  display: block;
+  float: left;
+  line-height: 20px;
+  padding: 0 5px;
+  font-size: 12px;
+  border: 1px solid #ddd;
+  color: #787878;
+  border-radius: 3px;
+  margin-right: 10px;
+  margin-bottom: 15px;
+`;
+
 export const Button = styled.div`
+  cursor: pointer;
+  user-select: none;
   float: right;
   line-height: 38px;
   border-radius: 19px;
