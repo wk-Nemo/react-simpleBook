@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import  { connect } from 'react-redux';
 import {
   TopicWrapper,
   TopicItem
 } from '../style'
 
-class Topic extends Component {
+class Topic extends PureComponent {
   render () {
     return (
       <TopicWrapper>
@@ -16,6 +16,7 @@ class Topic extends Component {
                 <img
                   className='topic-pic'
                   src={ item.get('imgUrl') }
+                  alt=''
                 />
                 { item.get('title') }
               </TopicItem>
@@ -28,7 +29,7 @@ class Topic extends Component {
 }
 
 const mapState = (state) => ({
-  list: state.get('home').get('topicList')
+  list: state.getIn(['home', 'topicList'])
 })
 
 export default connect(mapState, null)(Topic);
